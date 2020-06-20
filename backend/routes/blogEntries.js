@@ -8,9 +8,21 @@ router.route('/').get((req, res) => {
 });
 
 router.route('add').post((req, res) => {
-  const blogEntry = req.body.blogEntry;
+  const title = req.body.title;
+  const description = req.body.description;
+  const date = req.body.date;
+  const github = req.body.github;
+  // const additionalLinks = req.body.additionalLinks;
+  // const img = req.body.img;
 
-  const newBlogEntry = new BlogEntry({blogEntry});
+  const newBlogEntry = new BlogEntry({
+    title,
+    description,
+    date,
+    github,
+    // additionalLinks,
+    // img,
+  });
 
   newBlogEntry.save()
     .then(() => res.json('Blog Entry Added, whatup'))
