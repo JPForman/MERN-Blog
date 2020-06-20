@@ -18,6 +18,10 @@ connection.once('open', () => {
   console.log('MongoDB database connection was a wild success');
 })
 
+const blogEntriesRouter = require('./routes/blogEntries');
+
+app.use('/blogEntries', blogEntriesRouter);
+
 app.listen(port, () => {
   console.log(`Server is totally running on port: ${port}`);
 });
