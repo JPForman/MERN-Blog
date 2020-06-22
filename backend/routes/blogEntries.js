@@ -29,4 +29,16 @@ router.route('/add').post((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/:id').get((req, res) => {
+  BlogEntry.findById(req.params.id)
+    .then(blogEntry => res.json(blogEntry))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+router.route('/:id').delete((req, res) => {
+  BlogEntry.findByIdAndDelete(req.params.id)
+    .then(() => res.json('Blog Entry Deleted'))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
 module.exports = router;
