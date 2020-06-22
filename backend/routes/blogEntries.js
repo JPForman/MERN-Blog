@@ -41,4 +41,18 @@ router.route('/:id').delete((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
+router.route('/update/:id').post((req, res) => {
+  BlogEntry.findById(req.params.id)
+    .then(blogEntry => {
+      blogEntry.title = req.body.title;
+      blogEntry.description = req.body.description;
+      blogEntry.date = Date.parse(req.body.date);
+      blogEntry.github = req.body.github;
+
+      blogEntry.save()
+        .then(() => res.json('Blog Entry Updated Yo'))
+        .catch(err => res.status(400).json('Error: ' + err));
+    });
+});
+
 module.exports = router;
