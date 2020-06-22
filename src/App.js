@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from './components/Navbar';
+import Blog from './components/Blog';
+import CreateBlogEntry from './components/CreateBlogEntry';
 
 
 
@@ -10,7 +12,9 @@ function App() {
     <Router>
       <Navbar />
       <br/>
-      
+      <Route path='/' exact component={Blog} />
+      <Route path='/create' exact component={CreateBlogEntry} />
+
     </Router>
 
   );
