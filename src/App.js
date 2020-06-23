@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <br/>
       <Route path='/' exact component={Blog} />
-      <Route path='/create' exact component={CreateBlogEntry} />
+      <Route path='/create' component={CreateBlogEntry} />
 
     </Router>
 
