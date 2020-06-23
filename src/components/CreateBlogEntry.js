@@ -59,7 +59,7 @@ export default class CreateBlogEntry extends Component {
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <h3>Create A New Blog Entry</h3>
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>
@@ -72,7 +72,7 @@ export default class CreateBlogEntry extends Component {
           </div>
           <div className='form-group'>
             <label>Entry: </label>
-            <input type='text'
+            <textarea type='text'
             className='form-control'
             value={this.state.description}
             onChange={this.onChangeDescription}
